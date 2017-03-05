@@ -1,0 +1,23 @@
+version: '2'
+  services:
+    db:
+      image: mysql:5.7.17
+      environment:
+        MYSQL_ROOT_PASSWORD: whocares
+      ports:
+        - "3306:3306"
+    nginx:
+       image: nginx:1.11.10-alpine
+       volumes:
+         - "config/nginx/sites-enabled/hello.conf:/etc/nginx/sites-enabled/hello.conf"
+         - "config/nginx/nginx.conf:/etc/nginx/nginx.conf"
+         - "config/nginx/logs:/var/log/nginx/"
+       ports:
+         - "80"
+         - "443"
+     links:
+       - web
+    web:
+      image:
+      volumes:
+        - "config/web/index.html"
