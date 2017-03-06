@@ -15,7 +15,7 @@ version: '2'
        volumes:
          - "config/nginx/sites-enabled/hello.conf:/etc/nginx/sites-enabled/hello.conf"
          - "config/nginx/nginx.conf:/etc/nginx/nginx.conf"
-         - "config/nginx/logs:/var/log/nginx/"
+         - "config/nginx/logs:/var/log/nginx"
        ports:
          - "80"
          - "443"
